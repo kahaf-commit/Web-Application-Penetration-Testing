@@ -1,0 +1,30 @@
+JS analyzing 
+
+1st method
+
+In burp suit , add the website in scope -> Open all possinle page -> in burp history chek urls end with .js -> copy one by one in a notepad 
+
+Method 2: 
+
+https://github.com/tomnomnom/waybackurls
+
+─(kali㉿kali)-[~]
+└─$ echo "amrelsagaei.com" | waybackurls  | grep '\.js$' | sort -u > wayback_js.txt
+
+Checking live files: You can use `httpx` to determine which of the files found in the archive are currently active:bash
+
+cat wayback_js.txt | httpx -mc 200 > live_js.txt
+
+
+Searching for sensitive information: You can use SecretFinder to automatically search these files for API keys, passwords, or secret tokens:bash
+
+python3 SecretFinder.py -i wayback_js.txt -o cli
+
+Method 3:
+
+curl -G "https://web.archive.org/cdx/search/cdx" \
+--data-urlencode "url=*.amrelsagaei.com/*" \
+--data-urlencode "output=text" \
+--data-urlencode "fl=original" | grep '\.js$' > js-cdx.txt
+
+cat wayback_js.txt | httpx -mc 200 -o js-cdx.txt
