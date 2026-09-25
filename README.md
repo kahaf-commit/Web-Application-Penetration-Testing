@@ -24,7 +24,7 @@ With hands-on labs sourced from various platforms, this repository will help you
 Getting started with web security can feel overwhelming, but the key is to learn step by step. We recommend progressing through topics at your own pace, practicing with labs as you go. If a challenge feels too tough, move forward and revisit it later with fresh insights. For structured guidance, check out our curated learning paths below.
 
 ###  **Server-Side Vulnerabilities**
-- [ ] [Authentication Bypass](https://github.com/jubair7171/Web-Application-Penetration-Testing/tree/main/Wpt/Server%20Side%20vulnerability/Authentication%20Vulnerabilities#broken-authentication--authentication-vulnerabilities)
+- [ ] [Authentication Bypass]()
 - [ ] SQL Injection (SQLi)
 - [ ] Path Traversal
 - [ ] Command Injection
@@ -35,7 +35,7 @@ Getting started with web security can feel overwhelming, but the key is to learn
 - [ ] Race Conditions
 - [ ] Server-Side Request Forgery (SSRF)
 - [ ] XML External Entity (XXE) Injection
-- [ ] [NoSQL Injection](https://github.com/jubair7171/Web-Application-Penetration-Testing/tree/main/Wpt/Server%20Side%20vulnerability/NoSQL%20injection#nosql-injection)
+- [ ] [NoSQL Injection]()
 - [ ] API Security Testing
 - [ ] Web Cache Deception
 
@@ -117,4 +117,3 @@ Beyond OWASP Top 10, this repository covers a broad range of **server-side and c
 
 ---
 
->>>>>>> d4da624 (WAPT v1)
